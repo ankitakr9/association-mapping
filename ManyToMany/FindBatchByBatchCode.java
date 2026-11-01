@@ -1,36 +1,27 @@
 package org.jsp.ManyToMany;
 
-import java.util.Scanner;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class FindBatchByBatchCode {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		Scanner sc = new Scanner(System.in);
+        EntityManagerFactory emf =
+                Persistence.createEntityManagerFactory("M15");
 
-		System.out.println("Enter Batch Code:");
-		String code = sc.next();
+        EntityManager em = emf.createEntityManager();
 
-		EntityManagerFactory emf =
-				Persistence.createEntityManagerFactory("M15");
+        Batch batch = em.createQuery(
+                "select b from Batch b where b.batch_code = ?1",
+                Batch.class)
+                .setParameter(1, "M15")
+                .getSingleResult();
 
-		EntityManager em = emf.createEntityManager();
+        System.out.println(batch);
 
-		String jpql = "select b from Batch b where b.batch_code = ?1";
-
-		Batch batch = em.createQuery(jpql, Batch.class)
-				.setParameter(1, code)
-				.getSingleResult();
-
-		System.out.println("Batch Found:");
-		System.out.println(batch);
-
-		em.close();
-		emf.close();
-		sc.close();
-	}
+        em.close();
+        emf.close();
+    }
 }

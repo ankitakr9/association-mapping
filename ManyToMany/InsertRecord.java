@@ -64,13 +64,6 @@ public class InsertRecord {
 		b2.setStudents(Arrays.asList(s1,s3,s5,s6));
 		b2.setStudents(Arrays.asList(s1,s2,s4,s6));
 		
-		s1.setBatch(Arrays.asList(b1,b2,b3));
-		s2.setBatch(Arrays.asList(b1,b3));
-		s3.setBatch(Arrays.asList(b1,b2));
-		s4.setBatch(Arrays.asList(b1,b3));
-		s5.setBatch(Arrays.asList(b1,b2));
-		s6.setBatch(Arrays.asList(b1,b2,b3));
-		
 		List<Batch> bl=Arrays.asList(b1,b2,b3);
 		for(Batch b:bl) {
 			em.persist(b);

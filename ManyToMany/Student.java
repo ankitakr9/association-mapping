@@ -1,12 +1,9 @@
 package org.jsp.ManyToMany;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 @Entity
 public class Student {
 	@Override
@@ -43,14 +40,7 @@ public class Student {
 	private String name;
 	private long phone;
 	private double marks;
-	@ManyToMany(mappedBy="students")
-	private List<Batch> batch;
-
-	public List<Batch> getBatch() {
-		return batch;
-	}
-	public void setBatch(List<Batch> batch) {
-		this.batch = batch;
-	}
+	
+	
 	
 }

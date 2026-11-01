@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
@@ -46,7 +45,6 @@ public class Batch {
 	private String batch_code;
 	private String subject;
 	private String trainer;
-	@JoinTable
 	@ManyToMany(cascade=CascadeType.ALL)
 	private List<Student> students;
 
